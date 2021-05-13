@@ -1,4 +1,11 @@
-// Assignment code here
+// Set Characters as variables
+var char = {
+  lowerCase: "abcdefghijklmnopqrstuvwxyz",
+  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  num: "1234567890",
+  specialChar: "!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+}
+//User chooses characters
 
 
 // Get references to the #generate element
