@@ -8,6 +8,20 @@ var char = {
 let criteria = function() {
 
   let choseChar = "";
+//Prompt for password length
+let passLength = function(){
+  let promptLength = prompt("Enter a length between 8 and 128");
+  promptLength = parseInt(promptLength);
+
+  //Delete NaN and decimals - integers only
+  if(isNaN(promptLength) || Number.isInteger(promptLength) === false || promptLength < 8 || promptLength > 128){
+    alert("You must enter a number between 8 and 128");
+    passLength();
+  }else{
+    alert(`Your password will be ${promptLength} characters long.`)
+    return promptLength;
+  }
+}
 
   while(choseChar === ""){
     // select lowercase
