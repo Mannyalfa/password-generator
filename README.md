@@ -13,6 +13,6 @@ Github URL: https://github.com/Mannyalfa/password-generator
 
 Deployed Application URL: https://mannyalfa.github.io/password-generator/
 
-Deployed Application Screenshot
+Deployed Application Screenshot: https://github.com/Mannyalfa/password-generator/blob/main/deployedApplicationScreenshot.png
 
 
