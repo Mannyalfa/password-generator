@@ -5,50 +5,51 @@ var char = {
   specialChar: "!@#$%^&*()-=_+[];':\/.,?><"
 }
 
-//Choose characters
+//Choose character. Because user chooses successive sets of variables, we build an "aggregate" variable array  
+//using conditional statements rather than concatenate the character sets.  
 let criteria = function() {
 
   let choseChar = "";
 
   while(choseChar === ""){
-    // confirm lowercase
-    let confirmLower = confirm('Include lowercase letters in your password?');
+    // confirm lowercase selection
+    let confirmLower = confirm('Include lowercase letters?');
     if(confirmLower === true){
-      alert("Your password will contain lowercase letters");
+      alert("Password will contain lowercase letters");
       choseChar = choseChar + char.lowerCase;
     }else{
-      alert("Your password will NOT contain lowercase letters")
+      alert("Password will NOT contain lowercase letters")
     }
 
-    // Confirm uppercase
-    let confirmUpper = confirm('Include uppercase letters in your password?');
+    // Confirm uppercase selection
+    let confirmUpper = confirm('Include uppercase letters?');
     if(confirmUpper === true){
-      alert("Your password will contain uppercase letters");
+      alert("Password will contain uppercase letters");
       choseChar = choseChar + char.upperCase;
     }else{
-      alert("You have chosen to omit uppercase letters from your password")
+      alert("Password will NOT contain uppercase letters")
     }
 
-    // Confirm numbers
-    let confirmNum = confirm('Include numbers in your password?');
+    // Confirm numbers selection
+    let confirmNum = confirm('Include numbers?');
     if(confirmNum === true){
-      alert("Your password will contain numbers");
+      alert("Password will contain numbers");
       choseChar = choseChar + char.num;
     }else{
-      alert("Your password will NOT contain numbers")
+      alert("Password will NOT contain numbers")
     }
 
-    // Confirm special characters
-    let confirmSpec = confirm('Include special characters in your password?');
+    // Confirm special characters selection
+    let confirmSpec = confirm('Include special characters?');
     if(confirmSpec === true){
-      alert("Your password will contain special characters");
+      alert("Password will contain special characters");
       choseChar = choseChar + char.specialChar;
     }else{
-      alert("Your password will NOT contain special characters");
+      alert("Password will NOT contain special characters");
     }
-    // Alert no choice
+    // Alert  if 'no choice'
     if(choseChar === ""){
-      alert("You must select at least one type of character");
+      alert("Select at least ONE type of character");
     }else{
       return choseChar;
     }
@@ -57,10 +58,10 @@ let criteria = function() {
 
 // Prompt for password length
 let passLength = function(){
-  let promptLength = prompt("How long do you want your password to be? Please enter a number between 8 and 128");
+  let promptLength = prompt("How many characters in your password? Enter a number between 8 and 128");
   promptLength = parseInt(promptLength);
 
-  //Delete NaN's and decimals-integers only
+  //Delete NaN's and decimals
   if(isNaN(promptLength) || Number.isInteger(promptLength) === false || promptLength < 8 || promptLength > 128){
     alert("Enter a length between 8 and 128");
     passLength();
@@ -70,7 +71,7 @@ let passLength = function(){
   }
 }
 
-// Generate password using criteria selected
+// Use for loop to generate password-THIS is where the 'magic' happens!
 function generatePassword(){
   let pass = "";
   let chosenLength = passLength();
@@ -84,7 +85,7 @@ return pass;
 }
 
 
-// References to  #generate element
+// Add generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
